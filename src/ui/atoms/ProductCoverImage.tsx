@@ -1,13 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
-import { type TProductCoverImage } from '@/ui/types';
+import { type TProduct } from '@/ui/types';
 
 type ProductCoverImageProps = {
-	coverImage: TProductCoverImage;
+	product: TProduct;
 };
 
 export const ProductCoverImage = ({
-	coverImage: { src, alt },
+	product: { title, image },
 }: ProductCoverImageProps) => {
-	return <Image src={src} alt={alt} width={150} height={150} />;
+	return (
+		<Image
+			src={image}
+			alt={title}
+			width={0}
+			height={0}
+			sizes="100vw"
+			style={{ width: 300, height: 'auto' }}
+		/>
+	);
 };

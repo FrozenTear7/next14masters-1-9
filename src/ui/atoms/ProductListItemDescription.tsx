@@ -1,16 +1,19 @@
-import { type TProductDescription } from '@/ui/types';
+import Link from 'next/link';
+import { type TProduct } from '@/ui/types';
 import { formatPrice } from '@/utils';
 
 type ProductListItemDescriptionProps = {
-	description: TProductDescription;
+	product: TProduct;
 };
 
 export const ProductListItemDescription = ({
-	description: { category, name, price },
+	product: { id, title, category, price },
 }: ProductListItemDescriptionProps) => {
 	return (
 		<div className="flex flex-col gap-2">
-			<h1>{name}</h1>
+			<Link href={`/product/${id}`}>
+				<h1>{title}</h1>
+			</Link>
 			<p>{category}</p>
 			<p>{formatPrice(price)}</p>
 		</div>

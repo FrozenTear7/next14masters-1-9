@@ -7,12 +7,12 @@ type ProductListItemProps = {
 };
 
 export const ProductListItem = ({
-	product: { coverImage, description },
+	product,
 }: ProductListItemProps) => {
 	return (
 		<div className="flex flex-col gap-2">
-			<ProductCoverImage coverImage={coverImage} />
-			<ProductListItemDescription description={description} />
+			<ProductCoverImage product={product} />
+			<ProductListItemDescription product={product} />
 		</div>
 	);
 };
